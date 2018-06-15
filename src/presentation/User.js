@@ -4,17 +4,21 @@ const User = props => {
 	return (
 		<div>
 			<li>
-				<strong>{props.name}</strong>
+				<strong>Name: {props.name}</strong>
 				<br />
-				{props.email}
+				Address: {props.address.street} {props.address.suite}{' '}
+				{props.address.city}
 				<br />
-				{props.website}
+				Email: {props.email}
 				<br />
-				{props.company.name}
+				Website: {props.website}
+				<br />
+				Company: {props.company.name}
 				<br />
 				<button onClick={props.onDeleteUser.bind(this, props.id)}>
 					Delete
 				</button>
+				<button>Details</button>
 				<br />
 				<br />
 			</li>

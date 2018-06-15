@@ -1,8 +1,16 @@
-import { USERS_CLEAR, USERS_DELETE } from '../constants';
-import users from '../data/users.json';
+import {
+	USERS_CLEAR,
+	USERS_DELETE,
+	USERS_GET_START,
+	USERS_GET_SUCCESS,
+	USERS_GET_ERROR,
+} from '../constants';
 
 const initialState = {
-	users,
+	users: [],
+	isLoading: false,
+	isError: false,
+	errorMessage: '',
 };
 
 export default function usersReducer(state = initialState, action) {
@@ -18,6 +26,25 @@ export default function usersReducer(state = initialState, action) {
 			return {
 				...state,
 				users: filteredArray,
+			};
+		case USERS_GET_START:
+			return {
+				...state,
+				isLoading: true,
+			};
+		case USERS_GET_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				users: action.payload.data,
+			};
+		case USERS_GET_ERROR:
+			console.log(action.payload.error);
+			return {
+				...state,
+				isLoading: false,
+				isError: true,
+				errorMessage: action.payload.error,
 			};
 		default:
 			return state;

@@ -1,4 +1,6 @@
 export const USERS_CLEAR = 'USERS_CLEAR';
 export const USERS_DELETE = 'USERS_DELETE';
-export const USERS_FILTER = 'USERS_FILTER';
-export const USERS_FORM_DATA = 'USERS_SEARCH';
+
+export const USERS_GET_START = 'USERS_GET_START';
+export const USERS_GET_SUCCESS = 'USERS_GET_SUCCESS';
+export const USERS_GET_ERROR = 'USERS_GET_ERROR';
