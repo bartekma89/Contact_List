@@ -1,5 +1,6 @@
 import React from 'react';
 import User from './User';
+import PropTypes from 'prop-types';
 
 const ContactList = props => {
 	return (
@@ -12,6 +13,11 @@ const ContactList = props => {
 			<button onClick={props.onClearUsers}>Clear</button>
 		</div>
 	);
+};
+
+ContactList.propTypes = {
+	users: PropTypes.array.isRequired,
+	onClearUsers: PropTypes.func.isRequired,
 };
 
 export default ContactList;
