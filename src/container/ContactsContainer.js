@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ContactList from '../presentation/ContactList';
-import { clearUsers, deleteUser, getUsers } from '../actions/actions-users';
+import { clearUsers, deleteUser, getUsers } from '../actions/users';
 import Loader from '../presentation/Loader';
 
 class Contacts extends Component {

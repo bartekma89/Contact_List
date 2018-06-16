@@ -1,7 +1,7 @@
 import React from 'react';
 import Contacts from './container/ContactsContainer';
-import Details from './presentation/Details';
-import NotFound from './pageNotFound/NotFound';
+import Details from './container/DetailsContainer.js';
+import NotFound from './presentation/pageNotFound/NotFound';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {

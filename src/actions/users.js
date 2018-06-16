@@ -57,7 +57,7 @@ export function getUsers() {
 			.then(users => dispatch(getUsersSuccess(users)))
 			.catch(error =>
 				dispatch(
-					getUsersError('404 There are not data are you looking for ')
+					getUsersError('404 There are not data are you looking for')
 				)
 			);
 	};

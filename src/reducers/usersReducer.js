@@ -13,7 +13,7 @@ const initialState = {
 	errorMessage: '',
 };
 
-export default function usersReducer(state = initialState, action) {
+export function usersReducer(state = initialState, action) {
 	switch (action.type) {
 		case USERS_CLEAR:
 			return {
@@ -39,7 +39,6 @@ export default function usersReducer(state = initialState, action) {
 				users: action.payload.data,
 			};
 		case USERS_GET_ERROR:
-			console.log(action.payload.error);
 			return {
 				...state,
 				isLoading: false,
