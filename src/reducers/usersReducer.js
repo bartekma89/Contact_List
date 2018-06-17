@@ -24,10 +24,13 @@ export function usersReducer(state = initialState, action) {
 			};
 		case USERS_DELETE:
 			let id = action.payload.userId;
-			const filteredArray = state.users.filter(user => user.id !== id);
+			const noDeletedUsers = state.filterUsers.filter(
+				user => user.id !== id
+			);
 			return {
 				...state,
-				users: filteredArray,
+				filterUsers: noDeletedUsers,
+				users: noDeletedUsers,
 			};
 		case USERS_SEARCH:
 			const filterText = action.payload.userName;
