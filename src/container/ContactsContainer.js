@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ContactList from '../presentation/ContactList';
-import { clearUsers, deleteUser, getUsers } from '../actions/users';
+import {
+	clearUsers,
+	deleteUser,
+	getUsers,
+	searchUsers,
+} from '../actions/users';
 import Loader from '../presentation/Loader';
 
 class Contacts extends Component {
@@ -17,6 +22,11 @@ class Contacts extends Component {
 		this.props.deleteUser(id);
 	}
 
+	onSearchUsers(event) {
+		const user = event.target.value;
+		this.props.searchUsers(user);
+	}
+
 	render() {
 		return (
 			<Loader
@@ -25,9 +35,9 @@ class Contacts extends Component {
 				errorMessage={this.props.errorMessage}
 			>
 				<ContactList
-					onClearUsers={this.onClearUsers.bind(this)}
 					onDeleteUser={this.onDeleteUser.bind(this)}
-					users={this.props.users}
+					onSearchUsers={this.onSearchUsers.bind(this)}
+					users={this.props.filterUsers}
 				/>
 			</Loader>
 		);
@@ -37,6 +47,7 @@ class Contacts extends Component {
 const mapStateToProps = state => {
 	return {
 		users: state.usersStore.users,
+		filterUsers: state.usersStore.filterUsers,
 		isLoading: state.usersStore.isLoading,
 		hasErrored: state.usersStore.isError,
 		errorMessage: state.usersStore.errorMessage,
@@ -48,6 +59,7 @@ const mapDispatchToProps = dispatch => {
 		clearUsers: () => dispatch(clearUsers()),
 		deleteUser: userId => dispatch(deleteUser(userId)),
 		getUsers: () => dispatch(getUsers()),
+		searchUsers: userName => dispatch(searchUsers(userName)),
 	};
 };
 

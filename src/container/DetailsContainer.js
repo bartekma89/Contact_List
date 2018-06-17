@@ -29,18 +29,34 @@ class Details extends Component {
 			this.props.match.params.userId
 		) {
 			return (
-				<div>
-					<strong>Name:</strong> {name}
-					<br />
-					<strong>Address:</strong> {street} {suite} {city}
-					<br />
-					<strong>Email:</strong> {email}
-					<br />
-					<strong>Website:</strong> {website}
-					<br />
-					<strong>Company:</strong> {companyName}
-					<br />
-					<Link to="/">Back</Link>
+				<div className="Details">
+					<h2 style={{ textAlign: 'center', padding: '20px' }}>
+						User Profile
+					</h2>
+					<div className="card">
+						<h1>
+							<i className="fas fa-user" /> {name}
+						</h1>
+						<p>
+							<i className="fas fa-home" /> {street} {suite}{' '}
+							{city}
+						</p>
+						<p>
+							<i className="fas fa-at" /> {email}
+						</p>
+						<p>
+							<i className="fas fa-code" /> {website}
+						</p>
+						<p>
+							<i className="fas fa-briefcase" /> {companyName}
+						</p>
+						<span className="btn-back">
+							<i className="fas fa-arrow-left" />{' '}
+							<Link to="/" style={{ color: '#fff' }}>
+								Back
+							</Link>
+						</span>
+					</div>
 				</div>
 			);
 		} else {

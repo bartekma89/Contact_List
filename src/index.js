@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './store';
 import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
+import './styles/css/index.css';
 
 const middleWare = applyMiddleware(logger, thunk);
 

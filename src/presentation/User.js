@@ -4,16 +4,22 @@ import { Link } from 'react-router-dom';
 
 const User = props => {
 	return (
-		<div>
-			<li>
-				<strong>{props.name}</strong>
-				<br />
-				<button onClick={props.onDeleteUser.bind(this, props.id)}>
-					Delete
+		<div className="Contact-label" style={{ textAlign: 'center' }}>
+			<li className="label">
+				<h2>{props.name}</h2>
+				<span className="btn-details">
+					<Link to={`/details/${props.id}`}>
+						{' '}
+						<i className="fas fa-info-circle" />
+					</Link>
+				</span>
+				<button
+					className="btn-trash"
+					onClick={props.onDeleteUser.bind(this, props.id)}
+				>
+					{' '}
+					<i className="fas fa-trash-alt" />
 				</button>
-				<Link to={`/details/${props.id}`}>Details</Link>
-				<br />
-				<br />
 			</li>
 		</div>
 	);

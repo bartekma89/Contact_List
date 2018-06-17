@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,700i&subset=latin-ext');
+
+//font variables
+$font-basic: 'Montserrat', sans-serif;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $font-basic;
+	background-color: #fff;
+	font-weight: 400;
+	overflow-x: hidden;
+}
+
+h1 {
+	font-size: 24px;
+}

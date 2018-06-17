@@ -1,6 +1,7 @@
 import {
 	USERS_CLEAR,
 	USERS_DELETE,
+	USERS_SEARCH,
 	USERS_GET_START,
 	USERS_GET_SUCCESS,
 	USERS_GET_ERROR,
@@ -11,6 +12,7 @@ const initialState = {
 	isLoading: false,
 	isError: false,
 	errorMessage: '',
+	filterUsers: [],
 };
 
 export function usersReducer(state = initialState, action) {
@@ -27,6 +29,15 @@ export function usersReducer(state = initialState, action) {
 				...state,
 				users: filteredArray,
 			};
+		case USERS_SEARCH:
+			const filterText = action.payload.userName;
+			const foundUsers = state.users.filter(user =>
+				user.name.toLowerCase().includes(filterText.toLowerCase())
+			);
+			return {
+				...state,
+				filterUsers: foundUsers,
+			};
 		case USERS_GET_START:
 			return {
 				...state,
@@ -37,6 +48,7 @@ export function usersReducer(state = initialState, action) {
 				...state,
 				isLoading: false,
 				users: action.payload.data,
+				filterUsers: action.payload.data,
 			};
 		case USERS_GET_ERROR:
 			return {

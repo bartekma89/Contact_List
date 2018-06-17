@@ -1,0 +1,35 @@
+.Contact-label {
+	display: inline-block;
+	.label {
+		display: inline-block;
+		padding: 0 25px;
+		height: 50px;
+		line-height: 50px;
+		border-radius: 25px;
+		background-color: #3498db;
+		margin: 15px;
+		transition: all 300ms;
+		color: #fff;
+		filter: grayscale(70%);
+
+		&:hover {
+			filter: grayscale(0);
+		}
+
+		.btn-trash {
+			color: #fff;
+			&:hover {
+				color: #e74c3c;
+			}
+		}
+
+		&:hover {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			transition: all 300ms;
+		}
+
+		h2 {
+			display: inline-block;
+		}
+	}
+}

@@ -1,6 +1,7 @@
 import {
 	USERS_CLEAR,
 	USERS_DELETE,
+	USERS_SEARCH,
 	USERS_GET_START,
 	USERS_GET_SUCCESS,
 	USERS_GET_ERROR,
@@ -18,6 +19,15 @@ export function deleteUser(userId) {
 		type: USERS_DELETE,
 		payload: {
 			userId,
+		},
+	};
+}
+
+export function searchUsers(userName) {
+	return {
+		type: USERS_SEARCH,
+		payload: {
+			userName,
 		},
 	};
 }
