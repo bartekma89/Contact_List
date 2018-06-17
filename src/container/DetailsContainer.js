@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUsers, findUser } from '../actions/details';
+import NotFound from '../presentation/pageNotFound/NotFound';
 
 class Details extends Component {
 	componentDidMount() {
@@ -16,27 +17,35 @@ class Details extends Component {
 	}
 
 	render() {
-		const { name, email, website, company, address } = this.props.user;
+		const { name, email, website, company, address } =
+			this.props.user || {};
 		const companyName = (company || {}).name;
 		const street = (address || {}).street;
 		const suite = (address || {}).suite;
 		const city = (address || {}).city;
 
-		return (
-			<div>
-				<strong>Name:</strong> {name}
-				<br />
-				<strong>Address:</strong> {street} {suite} {city}
-				<br />
-				<strong>Email:</strong> {email}
-				<br />
-				<strong>Website:</strong> {website}
-				<br />
-				<strong>Company:</strong> {companyName}
-				<br />
-				<Link to="">Back</Link>
-			</div>
-		);
+		if (
+			this.props.detailsStore.users.length >=
+			this.props.match.params.userId
+		) {
+			return (
+				<div>
+					<strong>Name:</strong> {name}
+					<br />
+					<strong>Address:</strong> {street} {suite} {city}
+					<br />
+					<strong>Email:</strong> {email}
+					<br />
+					<strong>Website:</strong> {website}
+					<br />
+					<strong>Company:</strong> {companyName}
+					<br />
+					<Link to="/">Back</Link>
+				</div>
+			);
+		} else {
+			return <Route component={NotFound} />;
+		}
 	}
 }
 

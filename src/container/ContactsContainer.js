@@ -46,7 +46,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		clearUsers: () => dispatch(clearUsers()),
-		deleteUser: id => dispatch(deleteUser(id)),
+		deleteUser: userId => dispatch(deleteUser(userId)),
 		getUsers: () => dispatch(getUsers()),
 	};
 };
