@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Loader.css';
 
 const Loader = ({ hasErrored, isLoading, errorMessage, children }) => {
 	if (hasErrored) {
