@@ -1,19 +1,20 @@
 import React from 'react';
 import User from './User';
 import PropTypes from 'prop-types';
-import UserFilter from './UserFilter';
 
 const ContactList = props => {
-	return (
-		<div>
-			<UserFilter {...props} />
-			<ul>
-				{props.users.map(user => (
-					<User key={user.id} {...user} {...props} />
-				))}
-			</ul>
-		</div>
-	);
+	if (props.users.length !== 0) {
+		return (
+			<div>
+				<ul>
+					{props.users.map(user => (
+						<User key={user.id} {...user} {...props} />
+					))}
+				</ul>
+			</div>
+		);
+	}
+	return <p style={{ margin: '20px', fontSize: '22px' }}>No results!</p>;
 };
 
 ContactList.propTypes = {

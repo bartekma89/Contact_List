@@ -8,6 +8,7 @@ import {
 	searchUsers,
 } from '../actions/users';
 import Loader from '../presentation/Loader';
+import UserFilter from '../presentation/UserFilter';
 
 class Contacts extends Component {
 	componentDidMount() {
@@ -34,9 +35,9 @@ class Contacts extends Component {
 				hasErrored={this.props.hasErrored}
 				errorMessage={this.props.errorMessage}
 			>
+				<UserFilter onSearchUsers={this.onSearchUsers.bind(this)} />
 				<ContactList
 					onDeleteUser={this.onDeleteUser.bind(this)}
-					onSearchUsers={this.onSearchUsers.bind(this)}
 					users={this.props.filterUsers}
 				/>
 			</Loader>

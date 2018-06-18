@@ -23,7 +23,7 @@ Loader.propTypes = {
 	hasErrored: PropTypes.bool.isRequired,
 	isLoading: PropTypes.bool.isRequired,
 	errorMessage: PropTypes.string.isRequired,
-	children: PropTypes.object.isRequired,
+	children: PropTypes.array.isRequired,
 };
 
 export default Loader;
